@@ -29,6 +29,9 @@ int allocatebooks(vector<int> arr,int n,int m){
     int e=sum;
     int ans=-1;
     int mid=s+(e-s)/2;
+     if(n<m){
+        return -1;
+     }
     while(s<=e){
         if(ispossible(arr,n,m,mid)){
             ans=mid;
