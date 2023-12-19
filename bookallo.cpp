@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include<bits/stdc++.h>
 using namespace std;
 bool ispossible(vectir<int> arr,int n,int m,int mid){
@@ -41,3 +42,51 @@ int allocatebooks(vector<int> arr,int n,int m){
     }
     return ans;
 }
+=======
+#include<bits/stdc++.h>
+using namespace std;
+bool ispossible(vectir<int> arr,int n,int m,int mid){
+    int studentcount=1;
+    int pagesum=0;
+    for(int i=0;i<n;i++){
+        if(pagesum+arr[i]<=mid){
+            pagesum+=arr[i];
+        }
+        else{
+            studentcount++;
+            if(studentcount>m || arr[i]>mid){
+                return false;
+            }       
+            pagesum=arr[i];
+
+    }
+    if(studentcount>m){
+        return false;
+    }
+    return false;
+}
+int allocatebooks(vector<int> arr,int n,int m){
+    int s=0;
+    int sum=0;
+    for(int i=0;i<n;i++){
+        sum+=arr[i];
+    }
+    int e=sum;
+    int ans=-1;
+    int mid=s+(e-s)/2;
+     if(n<m){
+        return -1;
+     }
+    while(s<=e){
+        if(ispossible(arr,n,m,mid)){
+            ans=mid;
+            e=mid-1;
+        }
+        else{
+            s=mid+1;
+        }
+        mid=s+(e-s)/2;
+    }
+    return ans;
+}
+>>>>>>> 6c68dc281aa2a17458e67579039f0511782e5b1f
