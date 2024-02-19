@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include<stack>
 vector<int> nextSmallerElement(vector<int> &arr, int n)
 {
@@ -16,4 +17,24 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
         s.push(curr);
     }
     return ans;
+=======
+#include<stack>
+vector<int> nextSmallerElement(vector<int> &arr, int n)
+{
+    stack<int> s;
+    s.push(-1);
+    vector<int> ans(n);
+    
+    for(int i=n-1; i>=0 ; i--) {
+        int curr = arr[i];
+        while(s.top() >= curr)
+        {
+            s.pop();
+        }
+        //ans is stack ka top
+        ans[i] = s.top();
+        s.push(curr);
+    }
+    return ans;
+>>>>>>> 910b4b5bd767c05d4ab0dfbc9920d5efb3421c48
 }

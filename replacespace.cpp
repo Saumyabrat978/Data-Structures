@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include<string>
 #include<iostream>
 using namespace std;
@@ -16,4 +17,24 @@ string replaceSpaces(string &str){
         }
     }
     return temp;
+=======
+#include<string>
+#include<iostream>
+using namespace std;
+string replaceSpaces(string &str){
+	string temp = "";
+    
+    for(int i=0; i<str.length(); i++) {
+        if(str[i] == ' '){
+            temp.push_back('@');
+            temp.push_back('4');
+            temp.push_back('0');
+        }
+        else
+        {
+            temp.push_back(str[i]);
+        }
+    }
+    return temp;
+>>>>>>> 910b4b5bd767c05d4ab0dfbc9920d5efb3421c48
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <bits/stdc++.h> 
 void solve(stack<int>&inputStack, int count,int n){
    if(count==n/2){
@@ -14,4 +15,22 @@ void deleteMiddle(stack<int>&inputStack, int n){
    solve(inputStack,count,n);
    // Write your code here
    
+=======
+#include <bits/stdc++.h> 
+void solve(stack<int>&inputStack, int count,int n){
+   if(count==n/2){
+      inputStack.pop();
+      return;
+   }
+   int num=inputStack.top();
+   inputStack.pop();
+   solve(inputStack, count+1,n);
+   inputStack.push(num);
+}
+void deleteMiddle(stack<int>&inputStack, int n){
+	int count=0;
+   solve(inputStack,count,n);
+   // Write your code here
+   
+>>>>>>> 910b4b5bd767c05d4ab0dfbc9920d5efb3421c48
 }
