@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
   public:
     int numberOfEnclaves(vector<vector<int>> &grid) {
@@ -52,3 +55,16 @@ class Solution {
         return cnt; 
     }
 };
+
+int main() {
+    
+    vector<vector<int>> grid{
+        {0, 0, 0, 0},
+        {1, 0, 1, 0},
+        {0, 1, 1, 0},
+        {0, 0, 0, 0}};
+        
+    Solution obj;
+    cout << obj.numberOfEnclaves(grid) << endl;
+
+}
