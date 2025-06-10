@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxDifference(string&s) {
+        sort(s.begin(), s.end());
+
+        int odd = INT_MIN, even = INT_MAX;
+        int i = 1, curr = 1;
+        for(; i < s.size(); ++i) {
+            if(s[i] == s[i-1]) ++curr;
+            else {
+                if (curr % 2 == 0) even = min(even, curr);
+                else odd = max(odd, curr);
+                curr = 1;
+            }
+        }
+        if (curr % 2 == 0) even = min(even, curr);
+        else odd = max(odd, curr);
+        
+        return odd - even; 
+    }
+};
