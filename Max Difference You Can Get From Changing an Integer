@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int maxDiff(int num) {
+        string s = to_string(num);
+        string max = "", min = "";
+        int ele = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] != '9') {
+                ele = s[i];
+                break;
+            }
+        }
+        for (int i = 0; i < s.size(); i++) {
+            if (ele == s[i]) max += '9';
+            else max += s[i];
+        }
+        char rep = 0;
+        if (s[0] != '1') {
+            rep = s[0];
+            for (int i = 0; i < s.size(); i++) {
+                if (s[i] == rep) min += '1';
+                else min += s[i];
+            }
+        } else {
+            for (int i = 1; i < s.size(); i++) {
+                if (s[i] != '0' && s[i] != '1') {
+                    rep = s[i];
+                    break;
+                }
+            }
+            for (int i = 0; i < s.size(); i++) {
+                if (s[i] == rep) min += '0';
+                else min += s[i];
+            }
+        }
+
+        return stoi(max) - stoi(min);
+    }
+};
